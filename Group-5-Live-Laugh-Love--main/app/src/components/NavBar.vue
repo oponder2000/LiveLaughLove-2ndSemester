@@ -35,7 +35,16 @@ function signOutUser() {
                 </button>
             </div>
             <nav class="flex justify-end gap-2 w-1/4">
-                <RouterLink to="/" class="btn"> Home </RouterLink>
+                <span class="btn">
+                    <router-link to="/"> Home </router-link>
+                </span>
+                <span class="btn">
+                    <router-link to="game"> New Game </router-link>
+                </span>
+                <span class="btn">
+                    <router-link to="editor">Create Game</router-link>
+                </span>
+                <button v-if="auth.currentUser !== null" class="btn btn-warning" @click="signOutUser">Log Out</button>
             </nav>
         </div>
     </div>

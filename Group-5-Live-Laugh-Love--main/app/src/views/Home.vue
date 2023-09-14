@@ -6,9 +6,7 @@
                 Welcome to our app, where we aim to design the simplest way of creating and sharing accessible
                 story games. Try out our sample game, or get started on writing your own.
             </h2>
-            <RouterLink to="game" class="btn">New Game</RouterLink>
-            <RouterLink to="/" class="btn">Load Game</RouterLink>
-            <RouterLink to="editor" class="btn">Create Custom Game</RouterLink>
+            <RouterLink to="registration" class="btn">Log In</RouterLink>
         </div>
         <div class="flex  justify-center mx-auto rounded bg-cyan-600  text-center border-black shadow py-1 w-40">
             <p class="text-black">Made with
