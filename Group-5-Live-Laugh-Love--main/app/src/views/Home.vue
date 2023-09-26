@@ -22,15 +22,22 @@
                 story games. Try out our sample game, or get started on writing your own.
             </h2>
             <RouterLink to="game" class="btn">Play Test Game</RouterLink>
-            <button class="btn" id="load_button" v-on:click="toggleDiv('load_div');">Load Game</button>
+            <button class="btn" id="load_button" v-on:click="toggleDiv('load_div');">Load Game (Start/Continue Game)</button>
             <div class="col-sm-2" id="load_div" style="display: none;">
                 <p>Insert Game File</p>
                 <input type="file" accept=".txt">
-                <button class="btn">LOAD</button>
+                <button class="btn">Load</button>
                 <button class="btn">CONTINUE</button>
                 <button class="btn">NEW GAME</button>
             </div>
-            <RouterLink to="editor" class="btn">Editor (Create Game/Work on Draft)</RouterLink>
+            <button class="btn" id="edit_button" v-on:click="toggleDiv('edit_div');">Editor (Create/Edit Game)</button>
+            <div class="col-sm-2" id="edit_div" style="display: none;">
+                <p>Insert Draft File</p>
+                <input type="file" accept=".txt">
+                <button class="btn">Load</button>
+                <button class="btn">EDIT GAME</button>
+                <RouterLink to="editor" class="btn">CREATE GAME</RouterLink>
+            </div>
         </div>
         <div class="flex  justify-center mx-auto rounded bg-cyan-600  text-center border-black shadow py-1 w-40">
             <p class="text-black">Made with
