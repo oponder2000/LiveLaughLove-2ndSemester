@@ -5,6 +5,8 @@ import App from './App.vue'
 import router from './router'
 import {firebaseApp} from './firebase'
 import './style.css'
+import { themeChange } from 'theme-change'
+themeChange()
 
 const app = createApp(App);
 const pinia = createPinia();

@@ -33,6 +33,9 @@ function signOutUser() {
                 <button class="btn">
                     Epileptic Effects
                 </button>
+                <button data-toggle-theme="dark,light" data-act-class="ACTIVECLASS">
+                    Dark Mode Toggle
+                </button>
             </div>
             <nav class="flex justify-end gap-2 w-1/4">
                 <RouterLink to="/" class="btn"> Home </RouterLink>
@@ -40,3 +43,4 @@ function signOutUser() {
         </div>
     </div>
 </template>
+

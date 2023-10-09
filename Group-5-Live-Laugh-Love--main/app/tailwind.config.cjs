@@ -6,8 +6,8 @@ module.exports = {
   ],
   plugins: [require("@tailwindcss/typography"), require("daisyui")],
   daisyui: {
-    themes: [
-      {
+    themes: ["light", "dark", "cupcake"],
+  /*    {
         mytheme: {
           "primary": "#4c8dc2",
           "secondary": "#c24c4c",
@@ -20,6 +20,6 @@ module.exports = {
           "error": "#781010",
         },
       },
-    ],
+    ],*/
   },
 };
