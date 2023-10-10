@@ -1,22 +1,28 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
-import { useDraftStore } from "../stores/editorStore";
-import emptyStory from "../models/templateData"
+    import { ref, onMounted } from 'vue';
+    import { useDraftStore } from "../stores/editorStore";
+    import emptyStory from "../models/templateData";
 
-const store = useDraftStore();
-
+    const store = useDraftStore();
 </script>
 <template>
-    <div class="form-control mx-auto bg-secondary">
-        <label for="tname">Title:</label>
-        <label for="dname">Description:</label>
-        <input type="text" id= "tname" name="title" placeholder="Title">
-        <input type="text" id= "dname" name="description" placeholder="Description">
-        <button class="btn btn-primary" @click=";store.initNewDraft(false)">
-                Create an Empty Adventure
-        </button>
-        <button class="btn btn-primary" @click=";store.initNewDraft(true)">
-                Create a Pre-built Adventure
-        </button>
+    <router-link to="/" class="btn">Exit</router-link>
+    <div class="card bg-base-200 py-5 mx-auto w-3/4">
+        <div class="card-body w-3/4 mx-auto">
+            <div>
+                <label for="tname" class="block">Title:</label>
+                <input type="text" id= "tname" name="title" placeholder="title">
+                <label for="dname" class="block">Description:</label>
+                <input type="text" id= "dname" name="description" placeholder="description">
+            </div>
+            <div class="">
+                <button class="btn btn-primary block" @click=";store.initNewDraft(false)">
+                    Create an Empty Adventure
+                </button>
+                <button class="btn btn-primary block mt-1" @click=";store.initNewDraft(true)">
+                    Create a Pre-built Adventure
+                </button>
+            </div>    
+        </div>  
     </div>
 </template>
