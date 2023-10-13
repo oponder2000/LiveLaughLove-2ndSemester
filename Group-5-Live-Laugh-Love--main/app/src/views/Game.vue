@@ -13,10 +13,89 @@ const store = useGameStore();
 onMounted(() => {
     console.log('Game mounted');
 });
+</script>
 
+<script lang="ts">
+export default {
+  data() {
+    return {
+      title: "Text-To-Speech App",
+      input: "",
+      count: "",
+      lang: "",
+      voices: [],
+      status: "",
+      synth: "",
+      pending: false, 
+    };
+  },
+  methods: {
+    load(this: { voices: SpeechSynthesisVoice[]; synth: SpeechSynthesis }) {
+      this.synth = speechSynthesis;
+      const voices = this.synth.getVoices();
+      this.voices = voices;
+    },
+    start(this: {
+      voices: SpeechSynthesisVoice[];
+      lang: SpeechSynthesisVoice;
+      input: string;
+      status: boolean;
+      synth: SpeechSynthesis;
+      pending: boolean
+    }) {
+      const store = useGameStore();
+      this.synth = speechSynthesis;
+      const voices = this.synth.getVoices();
+      this.voices = voices;
+      this.lang = voices[14];
+      this.input = store.currentPage.text;
+      
+      if(this.synth.pending){
+        this.pending = this.synth.pending;
+       return alert("Pening ...");
+      }
+      if (this.input.length > 1 && this.lang && this.synth) {
+        const ss = new SpeechSynthesisUtterance(this.input);
+        ss.voice = this.lang;
+        this.status = this.synth.speaking;
+        this.synth.speak(ss);
+        this.status = this.synth.speaking;
+        console.log("Start", this.synth.speaking)
+      }
+    },
+    pause(this: { status: boolean; synth: SpeechSynthesis }) {
+      if(this.synth){
+        this.status = this.synth.speaking;
+        this.synth.pause();
+        this.status = this.synth.speaking;
+        console.log("Pause", this.synth.paused);
+      }
+    },
+    resume(this: { status: boolean; synth: SpeechSynthesis }) {
+      if(this.synth){
+        this.status = this.synth.speaking;
+        this.synth.resume();
+        this.status = this.synth.speaking;
+        console.log("Resume", this.synth.speaking);
+      }
+    },
+    cancel(this: { status: boolean; synth: SpeechSynthesis }) {
+      if(this.synth){
+        this.status = this.synth.speaking;
+        this.synth.cancel();
+        this.status = this.synth.speaking;
+        console.log("cancled", this.synth.speaking);
+      }
+    },
+  },
+};
 </script>
 
 <template>
+    <button class="btn btn-primary" @click="start">
+        Read Aloud
+    </button>
+
     <div>
         <!-- Story Panel-->
         <StoryPanel v-if="!store.charStatsOpen" :page="store.currentPage">
