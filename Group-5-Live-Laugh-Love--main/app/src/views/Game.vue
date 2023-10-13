@@ -52,7 +52,7 @@ export default {
       
       if(this.synth.pending){
         this.pending = this.synth.pending;
-       return alert("Pening ...");
+       return alert("Pending...");
       }
       if (this.input.length > 1 && this.lang && this.synth) {
         const ss = new SpeechSynthesisUtterance(this.input);
