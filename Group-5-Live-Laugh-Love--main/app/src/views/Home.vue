@@ -1,16 +1,22 @@
 <script setup lang="ts">
-    const loadButton = document.getElementById("load_button");
-    //https://stackoverflow.com/questions/19074171/how-to-toggle-a-divs-visibility-by-using-a-button-click
-    function toggleDiv(id: string) {
-        let div = document.getElementById(id);
-        if(div != null) {
-            if(div.style.display == "none") {
-                div.style.display = "block";
-            } else {
-                div.style.display = "none";
-            }
-        }
+import { defineProps } from 'vue';
+
+const props = defineProps({
+  selectedFont: String, // Receive the selected font as a prop
+});
+
+const loadButton = document.getElementById("load_button");
+
+function toggleDiv(id: string) {
+  let div = document.getElementById(id);
+  if (div != null) {
+    if (div.style.display == "none") {
+      div.style.display = "block";
+    } else {
+      div.style.display = "none";
     }
+  }
+}
 </script>
 
 <template>
