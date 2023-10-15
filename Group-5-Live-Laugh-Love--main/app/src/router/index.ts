@@ -10,17 +10,25 @@ const routes = [
         path: '/',
         name: 'home',
         component: Home,
-        // useAuth: true
+        meta: {
+            font: 'Arial', // Set the desired font for this route
+          },
     },
     {
         path: '/game',
         name: 'game',
         component: Game,
+        meta: {
+            font: 'Arial', // Set the desired font for this route
+          },
     },
     {
         path: '/editor',
         name: 'editor',
         component: Editor,
+        meta: {
+            font: 'Arial', // Set the desired font for this route
+          },
     }
 ];
 
