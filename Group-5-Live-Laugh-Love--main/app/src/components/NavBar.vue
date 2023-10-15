@@ -14,6 +14,9 @@ function signOutUser() {
         });
 }
 
+const props = defineProps({
+  selectedFont: String, // Receive the selected font as a prop
+});
 </script>
 
 <template>
@@ -24,13 +27,13 @@ function signOutUser() {
             </router-link>
             <!-- This could be made into a collapsible menu -->
             <div class="flex justify-start gap-2 w-1/4">
-                <button class="btn">
+                <button class="btn" :style="{ fontFamily: selectedFont }">
                     Text-To-Speech
                 </button>
-                <button class="btn">
+                <button class="btn" :style="{ fontFamily: selectedFont }">
                     Font Size
                 </button>
-                <button class="btn">
+                <button class="btn" :style="{ fontFamily: selectedFont }">
                     Epileptic Effects
                 </button>
             </div>
