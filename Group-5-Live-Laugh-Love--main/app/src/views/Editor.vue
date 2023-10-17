@@ -6,7 +6,7 @@
     const store = useDraftStore();
 </script>
 <template>
-    <router-link to="/" class="btn">Exit</router-link>
+    
     <div class="card bg-base-200 py-5 mx-auto w-3/4">
         <div class="card-body w-3/4 mx-auto">
             <div>
@@ -17,11 +17,9 @@
             </div>
             <div class="">
                 <button class="btn btn-primary block" @click=";store.initNewDraft(false)">
-                    Create an Empty Adventure
+                    Create an Adventure
                 </button>
-                <button class="btn btn-primary block mt-1" @click=";store.initNewDraft(true)">
-                    Create a Pre-built Adventure
-                </button>
+                <router-link to="/" class="btn">Exit</router-link>
             </div>    
         </div>  
     </div>
