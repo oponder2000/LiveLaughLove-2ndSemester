@@ -50,11 +50,7 @@ export default {
       this.lang = voices[14];
       this.input = store.currentPage.text;
       
-      if(this.synth.pending){
-        this.pending = this.synth.pending;
-       return alert("Pending...");
-      }
-      if (this.input.length > 1 && this.lang && this.synth) {
+      if (this.input.length > 1 && this.lang && this.synth && !this.synth.speaking) {
         const ss = new SpeechSynthesisUtterance(this.input);
         ss.voice = this.lang;
         this.status = this.synth.speaking;
@@ -64,7 +60,7 @@ export default {
       }
     },
     pause(this: { status: boolean; synth: SpeechSynthesis }) {
-      if(this.synth){
+      if (this.synth) {
         this.status = this.synth.speaking;
         this.synth.pause();
         this.status = this.synth.speaking;
@@ -72,7 +68,7 @@ export default {
       }
     },
     resume(this: { status: boolean; synth: SpeechSynthesis }) {
-      if(this.synth){
+      if (this.synth) {
         this.status = this.synth.speaking;
         this.synth.resume();
         this.status = this.synth.speaking;
@@ -80,11 +76,11 @@ export default {
       }
     },
     cancel(this: { status: boolean; synth: SpeechSynthesis }) {
-      if(this.synth){
+      if (this.synth) {
         this.status = this.synth.speaking;
         this.synth.cancel();
         this.status = this.synth.speaking;
-        console.log("cancled", this.synth.speaking);
+        console.log("Canceled", this.synth.speaking);
       }
     },
   },

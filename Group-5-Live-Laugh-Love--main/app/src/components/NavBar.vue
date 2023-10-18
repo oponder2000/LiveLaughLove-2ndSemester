@@ -26,7 +26,7 @@ const props = defineProps({
                 Text Based Adventure
             </router-link>
             <!-- This could be made into a collapsible menu -->
-            <div class="flex justify-start gap-2 w-1/4">
+            <div class="flex justify-start gap-2 w-1/2">
                 <button class="btn" :style="{ fontFamily: selectedFont }">
                     Text-To-Speech
                 </button>
@@ -36,7 +36,7 @@ const props = defineProps({
                 <button class="btn" :style="{ fontFamily: selectedFont }">
                     Epileptic Effects
                 </button>
-                <button data-toggle-theme="dark,light" data-act-class="ACTIVECLASS">
+                <button class="btn" :style="{ fontFamily: selectedFont }" data-toggle-theme="dark,light" data-act-class="ACTIVECLASS">
                     Dark Mode Toggle
                 </button>
             </div>
