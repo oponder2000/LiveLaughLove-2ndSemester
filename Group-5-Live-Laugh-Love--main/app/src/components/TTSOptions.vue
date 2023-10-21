@@ -1,60 +1,28 @@
 <template>
     <section class="card bg-base-200 py-5 mx-auto w-3/4">
         <div class="card-body w-3/4 mx-auto">
-            <h1 class="text-xl text-center pb-10">
+            <h1 class="text-4xl text-center pb-10">
                 Text-To-Speech Options
             </h1>
-            <select class="select w-1/2 mx-auto" v-model="lang">
-                <option value="" disabled selected>Select Voice</option>
-                <option v-for="voice in voices" class="option" :value="voice">
+            <div class="text-2xl text-center">Select voice:</div>
+            <select class="select w-1/2 mx-auto" v-model="ttsStore.selectedVoice">
+                <option v-for="voice in ttsStore.voices" class="option" :value="voice">
                     {{ voice.name }}
                 </option>
             </select>
-            <button class="btn w-1/2 mx-auto" v-on:click="start">Test voice</button>
+            <button class="btn btn-primary w-1/2 mx-auto" v-on:click="ttsStore.start(ssExampleInput)">Test voice</button>
         </div>
     </section>
 </template>
-  
-<script lang="ts">
-export default {
-  mounted() {
-    this.load()
-  },
-  data() {
-    return {
-      title: "",
-      input: "This is an example of speech synthesis in English.",
-      count: "",
-      lang: "",
-      voices: [],
-      status: "",
-      synth: "",
-      pending: false, 
-    };
-  },
-  methods: {
-    load(this: { voices: SpeechSynthesisVoice[]; synth: SpeechSynthesis }) {
-      this.synth = speechSynthesis;
-      const voices = this.synth.getVoices();
-      this.voices = voices;
-    },
-    start(this: {
-      voices: SpeechSynthesisVoice[];
-      lang: SpeechSynthesisVoice;
-      input: string;
-      status: boolean;
-      synth: SpeechSynthesis;
-      pending: boolean
-    }) {
-      if (this.input.length > 1 && this.lang && this.synth && !this.synth.speaking) {
-        const ss = new SpeechSynthesisUtterance(this.input);
-        ss.voice = this.lang;
-        this.status = this.synth.speaking;
-        this.synth.speak(ss);
-        this.status = this.synth.speaking;
-        console.log("Start", this.synth.speaking)
-      }
-    },
-  },
-};
+
+<script setup lang="ts">
+import { onMounted } from 'vue';
+import { useTTSStore } from '../stores/ttsStore';
+
+const ttsStore = useTTSStore();
+const ssExampleInput = 'This is an example of speech synthesis in English.';
+
+onMounted(() => {
+    console.log('TTS mounted');
+});
 </script>
