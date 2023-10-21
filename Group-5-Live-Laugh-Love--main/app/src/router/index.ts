@@ -2,6 +2,8 @@ import {createRouter, createWebHistory} from 'vue-router'
 import Home from '../views/Home.vue'
 import Game from '../views/Game.vue'
 import Editor from '../views/Editor.vue'
+import TTS from '../components/TTSOptions.vue'
+import { compile } from 'vue'
 
 // This file controls the routing of the App
 // see vue-router docs for more info
@@ -29,6 +31,14 @@ const routes = [
         meta: {
             font: 'Arial', // Set the desired font for this route
           },
+    },
+    {
+        path: '/tts',
+        name: 'tts',
+        component: TTS,
+        meta: {
+            font: 'Arial',
+        }
     }
 ];
 

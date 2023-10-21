@@ -27,9 +27,9 @@ const props = defineProps({
             </router-link>
             <!-- This could be made into a collapsible menu -->
             <div class="flex justify-start gap-2 w-1/2">
-                <button class="btn" :style="{ fontFamily: selectedFont }">
+                <RouterLink to="tts" class="btn">
                     Text-To-Speech
-                </button>
+                </RouterLink>
                 <button class="btn" :style="{ fontFamily: selectedFont }">
                     Font Size
                 </button>
@@ -40,6 +40,7 @@ const props = defineProps({
                     Dark Mode Toggle
                 </button>
             </div>
+            
             <nav class="flex justify-end gap-2 w-1/4">
                 <RouterLink to="/" class="btn"> Home </RouterLink>
             </nav>
