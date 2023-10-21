@@ -1,15 +1,18 @@
 <template>
-    <div class="mainBdy">
-      <div class="btns">
-        <select class="select" v-model="lang">
-          <option value="" disabled selected>Select Voice</option>
-          <option v-for="voice in voices" class="option" :value="voice">
-            {{ voice.name }}
-          </option>
-        </select>
-        <button class="btn" v-on:click="start">Test voice</button>
-      </div>
-    </div>
+    <section class="card bg-base-200 py-5 mx-auto w-3/4">
+        <div class="card-body w-3/4 mx-auto">
+            <h1 class="text-xl text-center pb-10">
+                Text-To-Speech Options
+            </h1>
+            <select class="select w-1/2 mx-auto" v-model="lang">
+                <option value="" disabled selected>Select Voice</option>
+                <option v-for="voice in voices" class="option" :value="voice">
+                    {{ voice.name }}
+                </option>
+            </select>
+            <button class="btn w-1/2 mx-auto" v-on:click="start">Test voice</button>
+        </div>
+    </section>
 </template>
   
 <script lang="ts">
