@@ -39,6 +39,11 @@ const props = defineProps({
                 <button class="btn" :style="{ fontFamily: selectedFont }" data-toggle-theme="dark,light" data-act-class="ACTIVECLASS">
                     Dark Mode Toggle
                 </button>
+                <select data-choose-theme>
+  <option value="">Default</option>
+  <option value="dark">Dark</option>
+  <option value="cupcake">Cupcake</option>
+</select>
             </div>
             
             <nav class="flex justify-end gap-2 w-1/4">
