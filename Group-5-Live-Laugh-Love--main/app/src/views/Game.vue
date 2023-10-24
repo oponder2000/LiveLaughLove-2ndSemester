@@ -2,28 +2,34 @@
 import { onMounted } from 'vue';
 
 import { useGameStore } from '../stores/gameStore';
+import { useTTSStore } from '../stores/ttsStore';
 import StoryPanel from '../components/StoryPanel.vue'
 import CharacterPanel from '../components/CharacterPanel.vue'
 // import { TypesConfig } from 'vue-router';
 // import { ChildProcess } from 'child_process';
 
-const store = useGameStore();
+const gameStore = useGameStore();
+const ttsStore = useTTSStore();
 
 // Lifecycle Hooks
 onMounted(() => {
     console.log('Game mounted');
+    console.log('TTS mounted');
 });
-
 </script>
 
 <template>
+    <button class="btn btn-primary" @click="ttsStore.start(gameStore.currentPage.text)">
+        Read Aloud
+    </button>
+
     <div>
         <!-- Story Panel-->
-        <StoryPanel v-if="!store.charStatsOpen" :page="store.currentPage">
+        <StoryPanel v-if="!gameStore.charStatsOpen" :page="gameStore.currentPage">
             <!-- Choices -->
             <ul class="flex flex-col justify-center text-m w-1/2 ">
-                <li v-for="({ text, isActive }, index) in store.currentPage.choices" class="px-auto py-1">
-                    <button :class="{ 'btn-success': isActive }" class="w-full btn" @click="store.setSelectedChoice(index)">
+                <li v-for="({ text, isActive }, index) in gameStore.currentPage.choices" class="px-auto py-1">
+                    <button :class="{ 'btn-success': isActive }" class="w-full btn" @click="gameStore.setSelectedChoice(index)">
                         {{ text }}
                     </button>
                 </li>
@@ -31,14 +37,14 @@ onMounted(() => {
         </StoryPanel>
 
         <!-- Character Stats / Inventory Panel -->
-        <CharacterPanel v-else :character="store.activeStory.character" />
+        <CharacterPanel v-else :character="gameStore.activeStory.character" />
 
         <!-- Bottom Bar  (for buttons)-->
         <div class="flex justify-between w-1/2 mx-auto">
-            <button class="btn" @click="store.toggleCharStats">
-                {{ !store.charStatsOpen ? "Character" : "Close" }}
+            <button class="btn" @click="gameStore.toggleCharStats">
+                {{ !gameStore.charStatsOpen ? "Character" : "Close" }}
             </button>
-            <button class="btn btn-primary" @click="store.submitChoice">
+            <button class="btn btn-primary" @click="gameStore.submitChoice">
                 Submit Choice
             </button>
         </div>
