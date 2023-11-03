@@ -3,7 +3,7 @@
     <FontManager :onFontChange="handleFontChange" />
     <Navbar :selectedFont="selectedFont" />
     <main>
-      <router-view />
+      <router-view :selectedFont="selectedFont"/>
     </main>
   </div>
 </template>
