@@ -22,7 +22,7 @@ const props = defineProps({
 <template>
     <div class="py-2">
         <div class="container flex justify-between items-center mx-auto">
-            <router-link to="/" class="text-3xl  font-bold">
+            <router-link to="/" class="text-3xl font-bold" :style="{ fontFamily: selectedFont }">
                 Text Based Adventure
             </router-link>
             <!-- This could be made into a collapsible menu -->
@@ -42,7 +42,7 @@ const props = defineProps({
             </div>
             
             <nav class="flex justify-end gap-2 w-1/4">
-                <RouterLink to="/" class="btn"> Home </RouterLink>
+                <RouterLink to="/" class="btn" :style="{ fontFamily: selectedFont }"> Home </RouterLink>
             </nav>
         </div>
     </div>
