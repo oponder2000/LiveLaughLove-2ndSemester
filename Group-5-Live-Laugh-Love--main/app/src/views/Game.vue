@@ -23,7 +23,7 @@ const props = defineProps({
 </script>
 
 <template>
-    <button class="btn btn-primary" @click="ttsStore.start(gameStore.currentPage.text)">
+    <button class="btn btn-primary center" @click="ttsStore.start(gameStore.currentPage.text)" :style="{ fontFamily: selectedFont }">
         Read Aloud
     </button>
 
