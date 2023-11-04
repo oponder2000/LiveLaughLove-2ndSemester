@@ -23,19 +23,19 @@ const props = defineProps({
 </script>
 
 <template>
-    <div class="flex justify-between w-1/2 mx-auto" :style="{ marginTop: 16 + 'px' }">
-        <button class="btn btn-primary" @click="ttsStore.start(gameStore.currentPage.text)" :style="{ fontFamily: selectedFont }">
+    <div class="flex justify-between w-1/2 mx-auto" :style="{ marginTop: 16 + 'px', fontFamily: selectedFont }">
+        <button class="btn btn-primary" @click="ttsStore.start(gameStore.currentPage.text)">
             Read Aloud
         </button>
     </div>
 
-    <div>
+    <div :style="{ fontFamily: selectedFont }">
         <!-- Story Panel-->
-        <StoryPanel v-if="!gameStore.charStatsOpen" :page="gameStore.currentPage" :style="{ fontFamily: selectedFont }">
+        <StoryPanel v-if="!gameStore.charStatsOpen" :page="gameStore.currentPage">
             <!-- Choices -->
             <ul class="flex flex-col justify-center text-m w-1/2 ">
-                <li v-for="({ text, isActive }, index) in gameStore.currentPage.choices" class="px-auto py-1" :style="{ fontFamily: selectedFont }">
-                    <button :class="{ 'btn-success': isActive }" class="w-full btn" @click="gameStore.setSelectedChoice(index) " :style="{ fontFamily: selectedFont }">
+                <li v-for="({ text, isActive }, index) in gameStore.currentPage.choices" class="px-auto py-1">
+                    <button :class="{ 'btn-success': isActive }" class="w-full btn" @click="gameStore.setSelectedChoice(index)">
                         {{ text }}
                     </button>
                 </li>
@@ -43,14 +43,14 @@ const props = defineProps({
         </StoryPanel>
 
         <!-- Character Stats / Inventory Panel -->
-        <CharacterPanel v-else :character="gameStore.activeStory.character" :style="{ fontFamily: selectedFont }"/>
+        <CharacterPanel v-else :character="gameStore.activeStory.character"/>
 
         <!-- Bottom Bar  (for buttons)-->
         <div class="flex justify-between w-1/2 mx-auto">
-            <button class="btn" @click="gameStore.toggleCharStats" :style="{ fontFamily: selectedFont }">
+            <button class="btn" @click="gameStore.toggleCharStats">
                 {{ !gameStore.charStatsOpen ? "Character" : "Close" }}
             </button>
-            <button class="btn btn-primary" @click="gameStore.submitChoice" :style="{ fontFamily: selectedFont }">
+            <button class="btn btn-primary" @click="gameStore.submitChoice">
                 Submit Choice
             </button>
         </div>
