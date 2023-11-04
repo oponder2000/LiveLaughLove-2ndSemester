@@ -23,9 +23,11 @@ const props = defineProps({
 </script>
 
 <template>
-    <button class="btn btn-primary center" @click="ttsStore.start(gameStore.currentPage.text)" :style="{ fontFamily: selectedFont }">
-        Read Aloud
-    </button>
+    <div class="flex justify-between w-1/2 mx-auto" :style="{ marginTop: 16 + 'px' }">
+        <button class="btn btn-primary" @click="ttsStore.start(gameStore.currentPage.text)" :style="{ fontFamily: selectedFont }">
+            Read Aloud
+        </button>
+    </div>
 
     <div>
         <!-- Story Panel-->
