@@ -1,19 +1,4 @@
 <script setup lang="ts">
-import { getAuth, signOut } from '@firebase/auth';
-
-const auth = getAuth();
-
-
-function signOutUser() {
-    signOut(auth)
-        .then(() => {
-            console.log('Signed Out');
-        })
-        .catch((error) => {
-            console.log(error);
-        });
-}
-
 const props = defineProps({
   selectedFont: String, // Receive the selected font as a prop
 });
