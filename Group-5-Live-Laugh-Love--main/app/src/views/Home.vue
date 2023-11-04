@@ -20,7 +20,7 @@ function toggleDiv(id: string) {
 </script>
 
 <template>
-    <section class="card bg-base-200 py-5 mx-auto w-3/4">
+    <section class="card bg-base-200 py-5 mx-auto w-3/4" :style="{ fontFamily: selectedFont }">
         <div class="card-body w-3/4 mx-auto">
             <h2 class="text-xl text-center  mx-auto pb-1">
                 <!-- TODO: this could be writtin better -->
