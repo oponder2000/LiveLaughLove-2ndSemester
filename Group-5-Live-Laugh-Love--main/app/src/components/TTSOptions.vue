@@ -6,10 +6,11 @@
             </h1>
             <div class="text-2xl text-center">Select voice:</div>
             <select class="select w-1/2 mx-auto" v-model="ttsStore.selectedVoice">
-                <option v-for="voice in ttsStore.voices" class="option" :value="voice">
+                <option v-for="voice in voices" class="option" :value="voice">
                     {{ voice.name }}
                 </option>
             </select>
+            <button class="btn w-1/2 mx-auto" v-on:click="loadVoices">Load Voices</button>
             <button class="btn btn-primary w-1/2 mx-auto" v-on:click="ttsStore.start(ssExampleInput)">Test voice</button>
         </div>
     </section>
@@ -25,4 +26,21 @@ const ssExampleInput = 'This is an example of speech synthesis in English.';
 onMounted(() => {
     console.log('TTS mounted');
 });
+</script>
+
+<script lang="ts">
+export default {
+  data() {
+    return {
+      voices: []
+    };
+  },
+  methods: {
+    loadVoices(this: { voices: SpeechSynthesisVoice[]; synth: SpeechSynthesis }) {
+      this.synth = speechSynthesis;
+      const voices = this.synth.getVoices();
+      this.voices = voices;
+    },
+  },
+};
 </script>

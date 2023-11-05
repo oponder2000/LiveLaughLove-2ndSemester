@@ -14,12 +14,12 @@ export const useTTSStore = defineStore('tts', () => {
           synth.speak(ss);
           console.log("TTS start:", "\"" + input + "\"");
         }
-      }
+    }
 
     return {
         synth,
         voices,
         selectedVoice,
-        start,
+        start
     }
 })
