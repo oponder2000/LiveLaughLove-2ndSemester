@@ -23,7 +23,7 @@ const props = defineProps({
 </script>
 
 <template>
-    <div class="flex justify-between w-1/2 mx-auto" :style="{ marginTop: 16 + 'px', fontFamily: selectedFont }">
+    <div v-if="!gameStore.charStatsOpen" class="flex justify-between w-1/2 mx-auto" :style="{ marginTop: 16 + 'px', fontFamily: selectedFont }">
         <button class="btn btn-primary" @click="ttsStore.start(gameStore.currentPage.text)">
             Read Aloud
         </button>
