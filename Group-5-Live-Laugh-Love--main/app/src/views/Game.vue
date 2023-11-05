@@ -43,14 +43,14 @@ const props = defineProps({
         </StoryPanel>
 
         <!-- Character Stats / Inventory Panel -->
-        <CharacterPanel v-else :character="gameStore.activeStory.character"/>
+        <CharacterPanel v-else :character="gameStore.activeStory.character" :style="{ marginTop: 32 + 'px'}"/>
 
         <!-- Bottom Bar  (for buttons)-->
         <div class="flex justify-between w-1/2 mx-auto">
             <button class="btn" @click="gameStore.toggleCharStats">
                 {{ !gameStore.charStatsOpen ? "Character" : "Close" }}
             </button>
-            <button class="btn btn-primary" @click="gameStore.submitChoice">
+            <button v-if="!gameStore.charStatsOpen" class="btn btn-primary" @click="gameStore.submitChoice">
                 Submit Choice
             </button>
         </div>
