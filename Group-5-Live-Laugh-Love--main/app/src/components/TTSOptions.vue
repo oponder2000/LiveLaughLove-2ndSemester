@@ -6,18 +6,19 @@
             </h1>
             <div class="text-2xl text-center">Select voice:</div>
             <select class="select w-1/2 mx-auto" v-model="ttsStore.selectedVoice">
+                <option value="none" selected disabled v-if="voices.length == 0">Click Load Voices</option>
                 <option v-for="voice in voices" class="option" :value="voice">
                     {{ voice.name }}
                 </option>
             </select>
-            <button class="btn w-1/2 mx-auto" v-on:click="loadVoices">Load Voices</button>
-            <button class="btn btn-primary w-1/2 mx-auto" v-on:click="ttsStore.start(ssExampleInput)">Test voice</button>
+            <button v-if="voices.length == 0" class="btn w-1/2 mx-auto" v-on:click="loadVoices">Load Voices</button>
+            <button v-if="voices.length > 0" class="btn btn-primary w-1/2 mx-auto" v-on:click="ttsStore.start(ssExampleInput)">Test voice</button>
         </div>
     </section>
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue';
+import { onMounted, onUpdated } from 'vue';
 import { useTTSStore } from '../stores/ttsStore';
 
 const ttsStore = useTTSStore();
@@ -30,6 +31,9 @@ onMounted(() => {
 
 <script lang="ts">
 export default {
+  mounted() {
+    this.loadVoices();
+  },
   data() {
     return {
       voices: []
