@@ -40,10 +40,11 @@ const props = defineProps({
                     Dark Mode Toggle
                 </button>
                 <select data-choose-theme>
-  <option value="">Default</option>
-  <option value="dark">Dark</option>
-  <option value="cupcake">Cupcake</option>
-</select>
+                <option value="">Default</option>
+                <option value="dark">Dark</option>
+                <option value="cupcake">Cupcake</option>
+                <option value="mytheme">Option 1</option>
+                </select>
             </div>
             
             <nav class="flex justify-end gap-2 w-1/4">

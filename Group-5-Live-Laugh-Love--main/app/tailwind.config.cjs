@@ -6,20 +6,18 @@ module.exports = {
   ],
   plugins: [require("@tailwindcss/typography"), require("daisyui")],
   daisyui: {
-    themes: ["light", "dark", "cupcake"],
-  /*    {
+    themes: [
+      {
         mytheme: {
-          "primary": "#4c8dc2",
-          "secondary": "#c24c4c",
-          "accent": "#AACde9",
-          "neutral": "#3D4451",
-          "base-100": "#104978",
-          "info": "#77adda",
-          "success": "#296699",
-          "warning": "#9e2929",
-          "error": "#781010",
+        "primary": "#f59e0b",
+        "secondary": "#2563eb",
+        "accent": "#ec4899",
+        "neutral": "#7c3aed",
         },
       },
-    ],*/
+      "dark",
+      "light",
+      "cupcake",
+    ],
   },
-};
+}
