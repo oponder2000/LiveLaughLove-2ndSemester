@@ -39,11 +39,12 @@ const props = defineProps({
                 <button class="btn" :style="{ fontFamily: selectedFont }" data-toggle-theme="dark,light" data-act-class="ACTIVECLASS">
                     Dark Mode Toggle
                 </button>
+                <label for="data-choose-theme">High Contrast Theme: </label>
                 <select data-choose-theme>
-                <option value="">Default</option>
-                <option value="dark">Dark</option>
-                <option value="cupcake">Cupcake</option>
-                <option value="mytheme">Option 1</option>
+                <option value="hc1">Orange-Blue</option>
+                <option value="hc2">Purple-Green</option>
+                <option value="hc3">Pink-Yellow</option>
+                <option value="hc4">Tan-Turquoise</option>
                 </select>
             </div>
             
