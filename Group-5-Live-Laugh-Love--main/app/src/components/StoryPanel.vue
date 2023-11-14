@@ -11,7 +11,7 @@ const props = defineProps<{ page: StoryPage }>();
             <!-- Story Title -->
             <h2 class="card-title">{{ page.title }}</h2>
             <!-- Story Text -->
-            <p :style="{ fontFamily: font }">{{ page.text }} </p>
+            <p>{{ page.text }} </p>
             <!-- choices go in the slot - as seen in view/Game.vue -->
             <slot />
         </div>
