@@ -1,60 +1,73 @@
-<script setup lang="ts">
+<script lang="ts">
     import { ref, onMounted } from 'vue';
     import MakeNewAdventure from '../components/MakeNewAdventure.vue'
+    import Modal from '../components/Modal.vue'
     import testStory from '../models/testData'
 
-    var table = document.getElementById("storyTable");
-    var modal = document.getElementById("eventModal");
-    var span = document.getElementsByClassName("close")[0];
+    let table = document.getElementById("storyTable");
 
     function loadTable(){
         table = document.getElementById("storyTable");
         var result = "<table border=1>";
-    for(var i=0; i<testStory.story.length; i++) {
-        result += "<tr>";
-        result += "<td contenteditable>"+testStory.story[i].id+"</td>";
-        result += "<td contenteditable>"+testStory.story[i].title+"</td>";
-        result += "<button class='btn' onclick = 'openDetails()'>Details</button>"
-        result += "<button class='btn' onclick = 'deleteRow(this)'>Delete</button>"
-        result += "</tr>";
-    }
-    result += "</table>";
-    return result;
-    }
-    function deleteRow(btn) {
-        var row = btn.parentNode;
-        row.parentNode.removeChild(row);
-    }
-    function addRow() {
-        let row = document.createElement("tr");
-        let c1 = document.createElement("td");  let c2 = document.createElement("td");
-        c1.innerText = "No ID";                 c2.innerText = "No Title";
-        row.appendChild(c1);                    row.appendChild(c2);
-        table?.appendChild(row)
-    }
-    function openDetails() {
-        modal = document.getElementById("eventModal");
-        modal.style.display = "block";
-    }
-    function closeDetails() {
-        modal.style.display = "none";
-    }
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
+        for(var i=0; i<testStory.story.length; i++) {
+            result += "<tr>";
+            result += "<td contenteditable>"+testStory.story[i].id+"</td>";
+            result += "<td contenteditable>"+testStory.story[i].title+"</td>";
+            result += "<button class='btn' @click = 'openDetails()'>Details</button>"
+            result += "<button class='btn' @click = 'deleteRow(this)'>Delete</button>"
+            result += "</tr>";
         }
+        result += "</table>";
+        return result;
     }
-</script>
 
+    export default {
+        name: 'Editor',
+        components: {
+            Modal,
+            MakeNewAdventure
+        },
+        data() {
+            return {
+                isModalVisible: false,
+                event: 0,
+                tableRows: [{ name: "Home", number: 123 },
+                { name: "Market", number: 345 }],
+                counter: 1,
+            };
+        },
+        methods: {
+            showModal(index) {
+                this.isModalVisible = true;
+                this.event = index;
+            },
+            closeModal() {
+                this.isModalVisible = false;
+            },
+            addRow() {
+                this.counter++;
+                this.tableRows.push({ name: "", number: "" });
+            },
+            deleteRow(index) {
+                this.tableRows.splice(index, 1);
+            },
+        }
+    };
+</script>
+    
 <template>
-    <make-new-adventure></make-new-adventure>
-    <button class="btn btn-primary" v-on:click="loadTable()">Story Editor</button>
-    <div id="eventModal" class="show-modal">
-        <div class="modal-content overlay">
-            <span class="close" onclick="closeDetails()">&times;</span>
-            <p>Some text in the Modal..</p>
-        </div>
+    <MakeNewAdventure></MakeNewAdventure>
+    <button class="btn btn-primary" onclick="loadTable()">Story Editor</button>
+    
+    <div id="container">
+        <!-- Button to open the modal -->
+        <button class="btn" @click="showModal">Open Modal</button>
+        <!-- Modal component -->
+        <Modal v-if="isModalVisible" @close="closeModal">
+            <p>This is a Vue.js modal!</p>
+        </Modal>
     </div>
+    
     <div id="container">
         <table striped hover items="items" id="storyTable">
             <thead>
@@ -62,64 +75,29 @@
                 <th>Event</th>
             </thead>
             <tbody>
-                <tr>
-                    <td contenteditable>0</td>
-                    <td contenteditable>Story Start</td>
-                    <button class="btn" onclick = "openDetails()">Details</button>
-                    <button class="btn" onclick = "deleteRow(this)">Delete</button>
+                <tr v-for="(tableData, index) in tableRows" :key="index" :id="index" class="table-row">
+                    <td>{{ index + 1 }}</td>
+                    <td>
+                        <input type="text" v-model="tableData.name" />
+                    </td>
+                    <button class="btn delete-button" @click="showModal(index)">Details</button>
+                    <button class="btn delete-button" @click="deleteRow(index)">Remove</button>
                 </tr>
             </tbody>
         </table>
+        <button class="btn" @click = "addRow()">Add Row</button> 
     </div>
-    <button class="btn" onclick = "addRow()">Add Row</button>
 </template>
 
 <style>
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
-
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
-.show-modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-/* Modal Content/Box */
-.modal-content {
-  background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
-}
-
-/* The Close Button */
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
+    table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    }
+    td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    }
 </style>

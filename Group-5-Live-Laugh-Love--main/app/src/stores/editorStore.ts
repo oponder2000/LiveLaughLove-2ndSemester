@@ -12,19 +12,15 @@ export const useDraftStore = defineStore('draft', () => {
 
     // Methods
     // Saves a new draft story
-    function initNewDraft(preBuilt: boolean) {
+    function initNewDraft() {
         //CHANGE: Add check for existing draft to switch from (makeActiveDraft())
         //HERE
-        if(preBuilt)
-            draft.value = templateStory;
-        else{
-            const tempDraft = emptyStory;
-            var title = (<HTMLInputElement>document.getElementById("tname")).value;
-            var description = (<HTMLInputElement>document.getElementById("dname")).value;
-            tempDraft.title = title;
-            tempDraft.description = description;
-            draft.value = tempDraft;
-        }
+        const tempDraft = emptyStory;
+        var title = (<HTMLInputElement>document.getElementById("tname")).value;
+        var description = (<HTMLInputElement>document.getElementById("dname")).value;
+        tempDraft.title = title;
+        tempDraft.description = description;
+        draft.value = tempDraft;
     }
 
     // Selects a drafted story to make active

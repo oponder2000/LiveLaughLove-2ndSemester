@@ -1,7 +1,6 @@
 <script setup lang="ts">
     import { useDraftStore } from "../stores/editorStore";
     import emptyStory from "../models/templateData";
-
     const store = useDraftStore();
 </script>
 
