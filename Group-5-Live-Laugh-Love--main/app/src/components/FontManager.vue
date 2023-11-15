@@ -1,6 +1,6 @@
 <template>
   <section class="card bg-base-200 py-5 mx-auto w-3/4" :style="{ fontFamily: fontStore.selectedFont, color: fontStore.selectedColor }">
-    <h1 class="text-xl text-center pb-10">
+    <h1 class="text-2xl text-center pb-10">
         Font Options
     </h1>
     <label class="text-xl text-center m-1">Select font:</label>
