@@ -31,17 +31,17 @@ function toggleDiv(id: string) {
             <div class="col-sm-2" id="load_div" style="display: none;">
                 <p>Insert Game File</p>
                 <input type="file" accept=".txt">
-                <button class="btn" :style="{ fontFamily: fontStore.selectedFont, color: fontStore.selectedColor}">Load</button>
-                <button class="btn" :style="{ fontFamily: fontStore.selectedFont, color: fontStore.selectedColor}">CONTINUE</button>
-                <button class="btn" :style="{ fontFamily: fontStore.selectedFont, color: fontStore.selectedColor}">NEW GAME</button>
+                <button class="btn" :style="{ fontFamily: fontStore.selectedFont, color: fontStore.selectedColor }">Load</button>
+                <button class="btn" :style="{ fontFamily: fontStore.selectedFont, color: fontStore.selectedColor }">CONTINUE</button>
+                <button class="btn" :style="{ fontFamily: fontStore.selectedFont, color: fontStore.selectedColor }">NEW GAME</button>
             </div>
             <button class="btn" id="edit_button" v-on:click="toggleDiv('edit_div');" :style="{ fontFamily: fontStore.selectedFont, color: fontStore.selectedColor}">Editor (Create/Edit Game)</button>
             <div class="col-sm-2" id="edit_div" style="display: none;">
                 <p>Insert Draft File</p>
                 <input type="file" accept=".txt">
-                <button class="btn" :style="{ fontFamily: fontStore.selectedFont, color: fontStore.selectedColor}">Load</button>
-                <button class="btn" :style="{ fontFamily: fontStore.selectedFont, color: fontStore.selectedColor}">EDIT GAME</button>
-                <RouterLink to="editor" class="btn" :style="{ fontFamily: fontStore.selectedFont, color: fontStore.selectedColor}">CREATE GAME</RouterLink>
+                <button class="btn" :style="{ fontFamily: fontStore.selectedFont, color: fontStore.selectedColor }">Load</button>
+                <button class="btn" :style="{ fontFamily: fontStore.selectedFont, color: fontStore.selectedColor }">EDIT GAME</button>
+                <RouterLink to="editor" class="btn" :style="{ fontFamily: fontStore.selectedFont, color: fontStore.selectedColor }">CREATE GAME</RouterLink>
             </div>
         </div>
         <div class="flex  justify-center mx-auto rounded bg-cyan-600  text-center border-black shadow py-1 w-40">

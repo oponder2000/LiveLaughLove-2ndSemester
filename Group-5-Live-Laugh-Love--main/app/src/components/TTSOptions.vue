@@ -1,19 +1,17 @@
 <template>
     <section class="card bg-base-200 py-5 mx-auto w-3/4" :style="{ fontFamily: fontStore.selectedFont, color: fontStore.selectedColor }">
-        <div class="card-body w-3/4 mx-auto">
-            <h1 class="text-4xl text-center pb-10">
-                Text-To-Speech Options
-            </h1>
-            <label class="text-2xl text-center" >Select voice:</label>
-            <select class="select w-1/2 mx-auto" v-model="ttsStore.selectedVoice">
-                <option v-if="!voices.length" selected disabled>Click Load Voices</option>
-                <option v-for="voice in voices" class="option" :value="voice">
-                    {{ voice['name'] }}
-                </option>
-            </select>
-            <button v-if="!voices.length" class="btn w-1/2 mx-auto" v-on:click="loadVoices" :style="{ fontFamily: fontStore.selectedFont, color: fontStore.selectedColor }">Load Voices</button>
-            <button v-if="voices.length" class="btn btn-primary w-1/2 mx-auto" v-on:click="ttsStore.start(ssExampleInput)" :style="{ fontFamily: fontStore.selectedFont, color: fontStore.selectedColor }">Test voice</button>
-        </div>
+        <h1 class="text-2xl text-center pb-10">
+            Text-To-Speech Options
+        </h1>
+        <label class="text-xl text-center m-1">Select voice:</label>
+        <select class="select w-52 mx-auto m-1" v-model="ttsStore.selectedVoice">
+            <option v-if="!voices.length" selected disabled>Click Load Voices</option>
+            <option v-for="voice in voices" class="option" :value="voice">
+                {{ voice['name'] }}
+            </option>
+        </select>
+        <button v-if="!voices.length" class="btn w-52 mx-auto m-1" v-on:click="loadVoices" :style="{ fontFamily: fontStore.selectedFont, color: fontStore.selectedColor }">Load Voices</button>
+        <button v-if="voices.length" class="btn btn-primary w-52 mx-auto m-1" v-on:click="ttsStore.start(ssExampleInput)" :style="{ fontFamily: fontStore.selectedFont, color: fontStore.selectedColor }">Test voice</button>
     </section>
 </template>
 

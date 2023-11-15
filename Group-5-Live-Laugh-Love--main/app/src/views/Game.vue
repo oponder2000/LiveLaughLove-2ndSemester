@@ -19,7 +19,7 @@
         </StoryPanel>
 
         <!-- Character Stats / Inventory Panel -->
-        <CharacterPanel v-else :character="gameStore.activeStory.character" :style="{ marginTop: 32 + 'px', fontFamily: fontStore.selectedFont, color: fontStore.selectedColor}"/>
+        <CharacterPanel v-else :character="gameStore.activeStory.character" :style="{ marginTop: 32 + 'px', fontFamily: fontStore.selectedFont, color: fontStore.selectedColor }"/>
 
         <!-- Bottom Bar  (for buttons)-->
         <div class="flex justify-between w-1/2 mx-auto">
@@ -35,7 +35,6 @@
 
 <script setup lang="ts">
 import { onMounted } from 'vue';
-
 import { useGameStore } from '../stores/gameStore';
 import { useTTSStore } from '../stores/ttsStore';
 import { useFontStore } from "../stores/fontStore";

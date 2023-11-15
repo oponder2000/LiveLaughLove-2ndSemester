@@ -1,8 +1,3 @@
-<script setup lang="ts">
-import { useFontStore } from '../stores/fontStore';
-const fontStore = useFontStore();
-</script>
-
 <template>
     <div class="py-2">
         <div class="container flex justify-between items-center mx-auto" :style="{ fontFamily: fontStore.selectedFont, color: fontStore.selectedColor }">
@@ -11,14 +6,18 @@ const fontStore = useFontStore();
             </router-link>
             <!-- This could be made into a collapsible menu -->
             <div class="flex justify-start gap-2 w-1/2">
-                <RouterLink to="font" class="btn" :style="{ fontFamily: fontStore.selectedFont, color: fontStore.selectedColor }">
-                    Font
-                </RouterLink>
-                
-                <RouterLink to="tts" class="btn" :style="{ fontFamily: fontStore.selectedFont, color: fontStore.selectedColor }">
-                    Text-To-Speech
-                </RouterLink>
-                
+                <div class="dropdown">
+                <label tabindex="0" class="btn" :style="{ fontFamily: fontStore.selectedFont, color: fontStore.selectedColor }">Font</label>
+                    <div tabindex="0" class="flex dropdown-content z-[1] w-96 m-1 drop-shadow-xl">
+                        <FontManager/>
+                    </div>
+                </div>
+                <div class="dropdown">
+                <label tabindex="0" class="btn" :style="{ fontFamily: fontStore.selectedFont, color: fontStore.selectedColor }">Text-to-Speech</label>
+                    <div tabindex="0" class="flex dropdown-content z-[1] w-96 m-1 drop-shadow-xl">
+                        <TTSOptions/>
+                    </div>
+                </div>
                 <button class="btn" data-toggle-theme="dark,light" data-act-class="ACTIVECLASS" :style="{ fontFamily: fontStore.selectedFont, color: fontStore.selectedColor }">
                     Dark Mode Toggle
                 </button>
@@ -32,3 +31,11 @@ const fontStore = useFontStore();
         </div>
     </div>
 </template>
+
+<script setup lang="ts">
+import { useFontStore } from '../stores/fontStore';
+import FontManager from './FontManager.vue'
+import TTSOptions from './TTSOptions.vue';
+
+const fontStore = useFontStore();
+</script>
