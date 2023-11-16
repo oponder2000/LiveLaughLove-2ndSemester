@@ -3,9 +3,9 @@ import { defineStore } from "pinia";
 
 export const useFontStore = defineStore('font', () => {
     const fonts = ["Arial", "Times New Roman", "Verdana"];
-    const colors = [null, "white", "black", "red", "blue"]
+    const colors = ["White", "Black", "Red", "Blue"]
     const selectedFont = ref("Arial");
-    const selectedColor = ref(null);
+    const selectedColor = ref("");
 
     return {
         fonts,

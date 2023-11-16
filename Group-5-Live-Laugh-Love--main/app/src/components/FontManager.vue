@@ -11,6 +11,7 @@
     </select>
     <label class="text-xl text-center m-1">Select color:</label>
     <select class="select w-52 mx-auto m-1" v-model="fontStore.selectedColor">
+        <option value="" name="" selected>Follow theme</option>
         <option v-for="color in colors" class="option" :value="color">
             {{ color }}
         </option>
