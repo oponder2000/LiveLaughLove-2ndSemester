@@ -37,7 +37,7 @@
             };
         },
         methods: {
-            showModal(index) {
+            showModal(index: any) {
                 this.isModalVisible = true;
                 this.event = index;
             },
@@ -46,9 +46,9 @@
             },
             addRow() {
                 this.counter++;
-                this.tableRows.push({ name: "", number: "" });
+                this.tableRows.push({ name: "", number: -1 });
             },
-            deleteRow(index) {
+            deleteRow(index: any) {
                 this.tableRows.splice(index, 1);
             },
         }
@@ -75,7 +75,7 @@
                 <th>Event</th>
             </thead>
             <tbody>
-                <tr v-for="(tableData, index) in tableRows" :key="index" :id="index" class="table-row">
+                <tr v-for="(tableData, index) in tableRows" :key="index" :id= index class="table-row">
                     <td>{{ index + 1 }}</td>
                     <td>
                         <input type="text" v-model="tableData.name" />

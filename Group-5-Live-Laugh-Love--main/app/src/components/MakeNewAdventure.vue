@@ -16,7 +16,7 @@
             </div>
             <div class="">
                 <!--Make button onclick: create a draft file or cookie. LATER UPDATE-->
-                <button class="btn btn-primary block" @click="store.initNewDraft(false);">
+                <button class="btn btn-primary block" @click="store.initNewDraft();">
                     Create an Adventure
                 </button>
                 <router-link to="/" class="btn">Exit</router-link>

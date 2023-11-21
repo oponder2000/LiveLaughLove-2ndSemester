@@ -1,6 +1,6 @@
 import { ref } from "vue";
 import { defineStore } from "pinia";
-import { useCollection } from "vuefire";
+//import { useCollection } from 'vuefire';
 import {Story, StoryPage, StoryChoice, Effect, StoryDraft, User, Stats} from "../models/types";
 import templateStory from "../models/templateData"
 import emptyStory from "../models/templateData"

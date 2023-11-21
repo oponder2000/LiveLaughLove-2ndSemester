@@ -21,7 +21,7 @@
   
   const changeColor = () => {
     // Emit the event with the selected color
-    props.onColorChange(selectedColor.value);
+    if(props.onColorChange) props.onColorChange(selectedColor.value);
   };
   </script>
   
