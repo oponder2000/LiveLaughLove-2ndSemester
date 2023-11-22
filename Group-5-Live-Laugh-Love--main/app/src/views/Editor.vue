@@ -75,7 +75,7 @@
                 <th>Event</th>
             </thead>
             <tbody>
-                <tr v-for="(tableData, index) in tableRows" :key="index" :id= index class="table-row">
+                <tr v-for="(tableData, index) in tableRows" :key="index" class="table-row">
                     <td>{{ index + 1 }}</td>
                     <td>
                         <input type="text" v-model="tableData.name" />
