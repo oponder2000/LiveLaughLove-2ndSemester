@@ -10,7 +10,7 @@
                 {{ voice['name'] }}
             </option>
         </select>
-        <button v-if="!voices.length" class="btn w-52 mx-auto m-1" v-on:click="loadVoices" :style="{ fontFamily: fontStore.selectedFont, color: fontStore.selectedColor }">Load Voices</button>
+        <button class="btn w-52 mx-auto m-1" v-on:click="loadVoices" :style="{ fontFamily: fontStore.selectedFont, color: fontStore.selectedColor }">Load Voices</button>
         <button v-if="voices.length" class="btn btn-primary w-52 mx-auto m-1" v-on:click="ttsStore.start(ssExampleInput)" :style="{ fontFamily: fontStore.selectedFont, color: fontStore.selectedColor }">Test voice</button>
     </section>
 </template>
