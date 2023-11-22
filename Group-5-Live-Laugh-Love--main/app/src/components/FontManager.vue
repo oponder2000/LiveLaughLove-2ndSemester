@@ -34,10 +34,10 @@ onMounted(() => {
 
 <style scoped>
 /* Add your @font-face rule for the custom font */
-@font-face {
+/*@font-face {
   font-family: 'OpenDyslexic';
   src: url('http://dyslexicfonts.com/fonts/OpenDyslexic-Regular.otf')  format('opentype'); 
-}
+}*/
 
 /* Add any additional styles as needed */
 </style>
