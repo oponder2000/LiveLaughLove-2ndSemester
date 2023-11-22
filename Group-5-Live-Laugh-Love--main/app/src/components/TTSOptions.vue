@@ -32,9 +32,6 @@ onMounted(() => {
 
 <script lang="ts">
 export default {
-  mounted() {
-    this.loadVoices();
-  },
   data() {
     return {
       voices: []
