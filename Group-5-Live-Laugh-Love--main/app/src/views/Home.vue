@@ -20,7 +20,7 @@ function toggleDiv(id: string) {
 <template>
     <section class="card bg-base-200 py-5 mx-auto w-3/4" :style="{ fontFamily: fontStore.selectedFont, color: fontStore.selectedColor }">
         <div class="card-body w-3/4 mx-auto">
-            <img class="mx-auto" src="src/img/symbol.png" alt="System Symbol" width="200" height="200">
+            <img class="mx-auto" src="/src/img/symbol.png" alt="System Symbol" width="200" height="200">
             <h2 class="text-xl text-center  mx-auto pb-1">
                 <!-- TODO: this could be writtin better -->
                 Welcome to our app, where we aim to design the simplest way of creating and sharing accessible
