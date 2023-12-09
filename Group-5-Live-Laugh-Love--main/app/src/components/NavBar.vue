@@ -29,6 +29,8 @@
                   <option value="hc2">Purple-Green</option>
                   <option value="hc3">Pink-Yellow</option>
                   <option value="hc4">Tan-Turquoise</option>
+                  <option value="hc5">Brown-Blue</option>
+                  <option value="hc6">Vermillion-Purple</option>
                   </select>
             </div>
             <nav class="flex justify-end gap-2 w-1/4">
