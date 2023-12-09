@@ -52,6 +52,28 @@ module.exports = {
                    
           "base-100": "#34d399",
         },
+        hc5: {
+          "primary": "#ffe4e6",
+          
+          "secondary": "#ec4899",
+                   
+          "accent": "#78350f",
+                   
+          "neutral": "#78350f",
+                   
+          "base-100": "#60a5fa",
+        },
+        hc6: {
+          "primary": "#f97316",
+          
+          "secondary": "#ec4899",
+                   
+          "accent": "#ef4444",
+                   
+          "neutral": "#ef4444",
+                   
+          "base-100": "#5b21b6",
+        },
       },
       "dark",
       "light",

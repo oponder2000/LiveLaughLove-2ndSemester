@@ -27,20 +27,20 @@ const props = defineProps({
         >
           Dark Mode Toggle
         </button>
-
-
-                <label for="data-choose-theme">High Contrast Theme: </label>
+        <label for="data-choose-theme">High Contrast Theme: </label>
                 <select data-choose-theme>
                 <option value="hc1">Orange-Blue</option>
                 <option value="hc2">Purple-Green</option>
                 <option value="hc3">Pink-Yellow</option>
                 <option value="hc4">Tan-Turquoise</option>
+                <option value="hc5">Brown-Blue</option>
+                <option value="hc6">Vermillion-Purple</option>
                 </select>
-            </div>
-            <nav class="flex justify-end gap-2 w-1/4">
+      </div>
+
+      <nav class="flex justify-end gap-2 w-1/4">
         <RouterLink to="/" class="btn" :style="{ fontFamily: selectedFont, color: selectedColor }">Home</RouterLink>
       </nav>
     </div>
   </div>
 </template>
-
