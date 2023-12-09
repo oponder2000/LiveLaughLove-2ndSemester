@@ -1,3 +1,4 @@
+
 <template>
     <div class="py-2">
         <div class="container flex justify-between items-center mx-auto" :style="{ fontFamily: fontStore.selectedFont, color: fontStore.selectedColor }">
@@ -21,15 +22,22 @@
                 <button class="btn" data-toggle-theme="dark,light" data-act-class="ACTIVECLASS" :style="{ fontFamily: fontStore.selectedFont, color: fontStore.selectedColor }">
                     Dark Mode Toggle
                 </button>
+                
+                  <label for="data-choose-theme">High Contrast Theme: </label>
+                  <select data-choose-theme>
+                  <option value="hc1">Orange-Blue</option>
+                  <option value="hc2">Purple-Green</option>
+                  <option value="hc3">Pink-Yellow</option>
+                  <option value="hc4">Tan-Turquoise</option>
+                  </select>
             </div>
-            
             <nav class="flex justify-end gap-2 w-1/4">
                 <RouterLink to="/" class="btn" :style="{ fontFamily: fontStore.selectedFont, color: fontStore.selectedColor }">
                 Home
             </RouterLink>
             </nav>
-        </div>
     </div>
+  </div>
 </template>
 
 <script setup lang="ts">
